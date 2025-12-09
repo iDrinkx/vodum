@@ -29,13 +29,13 @@ jobs:
 
       - name: Build and tag Docker image
         run: |
-          docker build -t nexius2/vodum:latest -f Dockerfile .
-          docker tag nexius2/vodum:latest nexius2/vodum:${{ github.sha }}
+          docker build -t idrinktv/vodum:latest -f Dockerfile .
+          docker tag idrinktv/vodum:latest idrinktv/vodum:${{ github.sha }}
 
       - name: Push Docker image
         run: |
-          docker push nexius2/vodum:latest
-          docker push nexius2/vodum:${{ github.sha }}
+          docker push idrinktv/vodum:latest
+          docker push idrinktv/vodum:${{ github.sha }}
 
 
 
