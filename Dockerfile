@@ -26,6 +26,11 @@ COPY requirements.txt .
 COPY app/entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
+# Install supercronic
+ADD https://github.com/aptible/supercronic/releases/latest/download/supercronic-linux-amd64 /usr/local/bin/supercronic
+RUN chmod +x /usr/local/bin/supercronic
+
+# Install python deps
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Create required folders
@@ -34,5 +39,3 @@ RUN mkdir -p /app/appdata/backup /app/appdata/logs /app/appdata/temp
 EXPOSE 5000
 
 ENTRYPOINT ["/app/entrypoint.sh"]
-
-CMD ["python3", "/app/start.py"]
