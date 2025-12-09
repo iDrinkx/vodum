@@ -24,7 +24,7 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN mkdir -p /app/appdata/backups /app/appdata/logs
+RUN mkdir -p /app/appdata/backup /app/appdata/logs
 
 EXPOSE 5000
 
