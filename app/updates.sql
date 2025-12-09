@@ -78,17 +78,19 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_mail_queue_unique
 
 
 -- ======================================================================
--- Migration : ajout des colonnes plex manquantes dans la table servers
+-- Migration : ajout des colonnes plex dans la table servers (idempotent)
 -- ======================================================================
 
--- plex_url
+-- Ajouter colonne plex_url si absente
 ALTER TABLE servers ADD COLUMN plex_url TEXT;
-UPDATE servers SET plex_url = NULL;
 
--- plex_token
+-- Ajouter colonne plex_token si absente
 ALTER TABLE servers ADD COLUMN plex_token TEXT;
-UPDATE servers SET plex_token = NULL;
 
--- plex_status
+-- Ajouter colonne plex_status si absente
 ALTER TABLE servers ADD COLUMN plex_status TEXT;
-UPDATE servers SET plex_status = NULL;
+
+-- Mise à jour safe des colonnes (ne modifie rien si elles existent déjà)
+UPDATE servers SET plex_url = plex_url;
+UPDATE servers SET plex_token = plex_token;
+UPDATE servers SET plex_status = plex_status;
