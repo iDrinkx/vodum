@@ -75,3 +75,20 @@ CREATE TABLE IF NOT EXISTS mail_queue (
 
 CREATE UNIQUE INDEX IF NOT EXISTS idx_mail_queue_unique
   ON mail_queue(campaign_id, user_id);
+
+
+-- ======================================================================
+-- Migration : ajout des colonnes plex manquantes dans la table servers
+-- ======================================================================
+
+-- plex_url
+ALTER TABLE servers ADD COLUMN plex_url TEXT;
+UPDATE servers SET plex_url = NULL;
+
+-- plex_token
+ALTER TABLE servers ADD COLUMN plex_token TEXT;
+UPDATE servers SET plex_token = NULL;
+
+-- plex_status
+ALTER TABLE servers ADD COLUMN plex_status TEXT;
+UPDATE servers SET plex_status = NULL;
