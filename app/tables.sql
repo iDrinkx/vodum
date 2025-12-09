@@ -85,16 +85,24 @@ CREATE TABLE IF NOT EXISTS servers (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
     server_id TEXT UNIQUE,
-	url TEXT,
-	token TEXT,
-	type TEXT,
-	server_status TEXT,
-	tautulli_url TEXT,
-	tautulli_api_key TEXT,
-	tautulli_status TEXT,
+    url TEXT,
+    token TEXT,
+    type TEXT,
+    server_status TEXT,
+
+    tautulli_url TEXT,
+    tautulli_api_key TEXT,
+    tautulli_status TEXT,
+
     local_url TEXT,
     public_url TEXT,
-	last_checked TEXT
+
+    -- 🔥 Colonnes plex correctement ajoutées
+    plex_url TEXT,
+    plex_token TEXT,
+    plex_status TEXT,
+
+    last_checked TEXT
 );
 
 -- Table des bibliothèques Plex
