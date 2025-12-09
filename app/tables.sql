@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS servers (
     local_url TEXT,
     public_url TEXT,
 
-    -- 🔥 Colonnes plex correctement ajoutées
+-- Colonnes plex correctement ajoutées
     plex_url TEXT,
     plex_token TEXT,
     plex_status TEXT,
